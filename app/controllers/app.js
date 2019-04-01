@@ -108,6 +108,19 @@ app.controller('commentsController', ['$scope', '$http', '$routeParams', '$route
     });
   }
 
+  $scope.likeComment = function(commentID) {
+    $scope.commentID = commentID;
+    $http.post('http://tuister.com/likeComment',{
+      "user_id": window.localStorage.getItem('user_id'),
+      "comment_id": $scope.commentID
+    }).then(function(response) {
+      console.log(response);
+      $route.reload();
+    }).catch(function(err) {
+      console.log(err)
+    });
+  }
+
 }]);
 
 app.controller('HomeController', ['$scope', '$http', function($scope,$http) {
@@ -155,12 +168,26 @@ app.controller('postsController', ['$scope', '$http', '$location','$route', func
       $scope.respuesta = response.data;
       console.log($scope.respuesta);
       console.log(response);
-      $route.reload()
+      $route.reload();
     }).catch(function(err){
       console.log(err)
     });
   }
   
+  $scope.likePost = function(postID) {
+    // alert(' PostID:'+postID+' userID: '+window.localStorage.getItem('user_id'));
+    $scope.postID = postID;
+    $http.post('http://tuister.com/likePost',{
+      "user_id": window.localStorage.getItem('user_id'),
+      "post_id": $scope.postID
+    }).then(function(response) {
+      console.log(response);
+      $route.reload();
+    }).catch(function(err) {
+      console.log(err)
+    });
+  }
+
 }]);
 
 app.controller('loginController', ['$scope', '$http', '$location', function($scope,$http,$location) {

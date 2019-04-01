@@ -27,7 +27,7 @@
                 <p class="card-text"> {{ post.body }} </p>
 
                 <div class="row">
-                    <div class="col col-md-4"><i class="far fa-thumbs-up"></i> likes: {{ post.num_likes }} </div>
+                    <div class="col col-md-4"><i class="far fa-thumbs-up" ng-click="likePost(post.id)"></i> likes: {{ post.num_likes }} </div>
                     <div class="col col-md-4 text-black-50">id: {{ post.id }} </div>
                     <div class="col col-md-4 text-black-50">User_id: {{ post.user_id }} <button class="btn btn-danger" ng-if=" post.user_id == getID()" ng-click="deletePost(post.id)"><i class="far fa-trash-alt"></i></button></div>
                 </div>
