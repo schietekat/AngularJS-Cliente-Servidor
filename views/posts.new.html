@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="card col-md-6 mx-auto my-5">
+        <h1>New Post</h1>
+        <form ng-submit="createPost()">
+            <div class="form-group">
+                <label for="email">Title</label>
+                <input type="text" class="form-control" placeholder="Insert a title" ng-model="post.title" required
+                    oninvalid="this.setCustomValidity('Por favor ingresa tu nombre')"
+                    oninput="this.setCustomValidity('')">
+            </div>
+            <div class="form-group">
+                <label for="email">Body</label>
+
+                <textarea class="form-control" ng-model="post.body"
+                    placeholder="Body ..." required oninvalid="this.setCustomValidity('Por favor ingresa tu nombre')"
+                    oninput="this.setCustomValidity('')">></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary">Register</button>
+            </div>
+        </form>
+    </div>
+</div>

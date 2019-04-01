@@ -1,0 +1,42 @@
+<!-- <section>
+    <h1>Aqui estan los posts</h1>
+
+    <div class="card" style="width: 18rem;" ng-repeat="item in posts">
+        <div class="card-body">
+            <h4 class="card-title">{{item.title}}</h4>
+            <p class="card-text">{{item.body}}</p>
+
+        </div>
+    </div>
+
+</section> -->
+<div class="container my-4">
+    <h1>Posts</h1>
+    <ul>
+        <li>
+            <a class="nav-link" href="#!/posts/new"> New Post </a>
+        </li>
+    </ul>
+</div>
+
+<div class="container">
+    <div >
+        <div class="card col col-md-12" ng-repeat="post in posts">
+            <div class="card-body">
+                <h4 class="card-title text-primary">{{ post.title }}</h4>
+                <p class="card-text"> {{ post.body }} </p>
+
+                <div class="row">
+                    <div class="col col-md-4"><i class="far fa-thumbs-up"></i> likes: {{ post.num_likes }} </div>
+                    <div class="col col-md-4 text-black-50">id: {{ post.id }} </div>
+                    <div class="col col-md-4 text-black-50">User_id: {{ post.user_id }} <button class="btn btn-danger" ng-if=" post.user_id == getID()" ng-click="deletePost(post.id)"><i class="far fa-trash-alt"></i></button></div>
+                </div>
+                <ul>
+                    <li>
+                        <a class="text-success" href="#!/posts/comments/{{ post.id }}">comments</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
